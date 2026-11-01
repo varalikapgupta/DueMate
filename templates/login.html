@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DueMate | Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="auth-main">
+
+    <div class="auth-card">
+
+        <h1>DueMate<span>.</span></h1>
+        <p>Your academic life, organized.</p>
+
+        <h2>Welcome Back</h2>
+
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <div class="flash">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+
+        <form method="POST">
+
+            <label>Email Address</label>
+            <input type="email" name="email"
+                   placeholder="Enter your email" required>
+
+            <label>Password</label>
+            <input type="password" name="password"
+                   placeholder="Enter your password" required>
+
+            <button type="submit">Login →</button>
+
+        </form>
+
+        <p class="auth-footer">
+            Don't have an account?
+            <a href="/register">Create Account</a>
+        </p>
+
+    </div>
+
+</body>
+</html>
